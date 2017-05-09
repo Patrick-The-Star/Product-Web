@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+<script src="lib/angular.min.js"></script>
+<link rel="stylesheet" href="css/styles.css">
+<div ng-app="weApp" ng-controller="customersCtrl">
+<style>
+	h1{ 
+		margin-top:35px;
+		text-align: center;
+	}
+</style>
+<table class="tableAlign">
+  
+  <h1>Products and Customers Together</h1>
+  <tr>
+  	<th>Customer Id</th>
+  	<th>Customer Name</th>
+  	<th>Product Name</th>
+  	<th>Address</th>
+  </tr>	
+
+  <tr ng-repeat="x in names">
+  	<td>{{ x.Id }}</td>
+    <td>{{ x.Name }}</td>
+   
+    <td>{{ x.Product }}</td>
+    <td>{{ x.Address}}</td>
+  </tr>
+</table>
+
+</div>
+
+<script>
+var app = angular.module('weApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http.get("combine.php")
+    .then(function (response) {
+    	console.log(response.data.records);
+    	$scope.names = response.data.records;});
+});
+</script>
+

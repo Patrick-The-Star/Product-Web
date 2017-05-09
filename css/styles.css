@@ -1,0 +1,271 @@
+/*elements stylesheet*/
+
+hr{
+    width:90%;
+    height:1px;
+    color:#000;
+}
+
+#joinedTable{
+    text-align: center;
+    
+    font-size: 4em;
+    size:2em;
+}
+
+button.btn{
+    font-size: 22px;
+    margin-bottom: 25px;
+    margin-right: 10px;
+    margin-left: 25px;
+    margin-top: 20px;
+    width:30%;
+    height:8%;
+}
+/*End of element stylesheet*/
+/*Navigation bar stylesheet*/
+
+#header-nav{
+    background-color:#FFFACD !important;
+}
+
+.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
+    border: 1px solid #A52A2A;
+
+
+}
+
+#move{
+    margin-left:-20px;
+}
+
+#nav-list a {
+    color: #951C49;
+    text-align: center;
+}
+
+#nav-list a:hover {
+    background: #E7E7E7;
+}
+
+.navbar-header button.navbar-toggle{
+    clear: both;
+    margin-top: -10px;
+}
+
+#nav-list a {
+    color: #951C49;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.navbar-brand h1{
+    font-family: 'Lora', serif;
+
+
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #222;
+    margin-top: 0;
+
+    line-height: .75;
+}
+
+
+#logo-img {
+    background: url('../images/logo.png') no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 150px;
+    height: 128px;
+    margin: 10px 15px 10px 0;
+}
+
+a h1{
+    margin-top:0em;
+}
+/*End of Navigation bar stylesheet*/
+
+/*Start of table stylesheet*/
+.tabletitle{
+    text-align: center;
+}
+
+table.smallTable{
+    width:45%;
+    text-align: center;
+    margin: 7px auto 30px auto ;
+    
+
+}
+
+table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+}
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.tableAlign{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*End of Table stylesheet8?
+
+
+/********** Large devices only **********/
+@media (min-width: 1300px) {
+    .container>.navbar-header{
+        margin-left: 0px !important;
+    }
+
+    #collapsable-nav ul{
+        margin-right: -20px;
+    }
+
+    #nav-list a {
+        color: #951C49;
+        text-align: center;
+        font-size: 2em;
+        margin-top:15px;
+    }
+
+    div.container {
+        width: 100%;
+    }
+}
+/*End of table stylesheet*/
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1299px) {
+    /* Header */
+    div.container {
+        width: 100%;
+    }
+
+    .container>.navbar-header{
+        margin-left: -100px !important;
+
+    }
+
+
+
+    #logo-img {
+        background: url('../images/swift.png') no-repeat center center;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        width: 100px;
+        height: 100px;
+        margin: 5px 5px 5px 0;
+    }
+    /* End Header */
+    a h1{
+        margin-left:0.4em;
+    }
+
+    #sublogo img{
+        height:2em;
+        width:2em;
+        margin-left:0.7em;
+    }
+
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+    #sublogo img{
+        height:2em;
+        width:2em;
+        margin-left:0.7em;
+    }
+    a h1{
+        font-size: 1.4em;
+    }
+
+    #collapsable-nav ul{
+        margin-right: -15px;
+    }
+
+    #nav-list a {
+        color: #951C49;
+        text-align: center;
+
+        margin-top:10px;
+    }
+    div.container {
+        width: 100%;
+    }
+
+    .container>.navbar-header{
+        margin-left: 10px !important;
+
+    }
+
+}
+
+@media (max-width:767px){
+
+    body input[type=button]{
+        display:block;
+        width:25%;
+        height:43px;
+        margin-top: 10px;
+        margin-left:auto;
+
+        margin-right: auto;
+    }
+
+    #sublogo img{
+        height:2em;
+        width:2em;
+       
+    }
+
+    #collapsable-nav a { /* Collapsed nav menu text */
+        font-size: 1.2em;
+        margin-left:4em;
+   }
+
+
+
+    #collapsable-nav ul{
+        margin-left: -100px;
+    }
+
+    #collapsable-nav a span { /* Collapsed nav menu glyph */
+        font-size: 1em;
+        margin-right: 5px;
+    }
+
+    a h1{
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width:449px){
+    .navbar-brand h1{
+        font-size: 1.1em;
+    }
+
+    #newTasks{
+        margin-left: 8px;
+        margin-right:8px;
+    }
+
+    ul.sticky_notes li{
+
+        font-family: 'Short Stack' !important;
+    }
+
+}

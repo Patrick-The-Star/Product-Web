@@ -1,0 +1,191 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>
+			Inlatis's Web App
+		</title>
+		<link rel="stylesheet" href="lib/bootstrap.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+
+	<body>
+		<header>
+            <nav id="header-nav" class="navbar navbar-default">
+                <div class="container" >
+                    <div class="navbar-header" id="move">
+                        <a href="#" class="pull-left visible-md visible-lg">
+                            <div id="logo-img"></div>
+
+                        </a>
+
+                        <div class="navbar-brand">
+                            <a href="#"><h1>Inlatis Web Application</h1></a>
+                            <div id="sublogo">
+                                <img src="images/database.png" height="65" width="65" alt="Inlatis logo">
+                                <span>A DBMS app</span>
+                            </div>
+
+                        </div>
+                        <button id="navbarToggle" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapsable-nav" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div><!-- navbar-header-->
+
+                    <div id="collapsable-nav" class="collapse navbar-collapse">
+                        <ul id="nav-list" class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-user"></span><br class="hidden-xs">Inlatis Oy
+                                </a>
+                            </li>
+                            <li id="navMenuButton">
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-book"></span><br class="hidden-xs">Employees</a>
+                            </li>
+                            <li>
+                                <a id="takeOrder" href="#">
+                                    <span class="glyphicon glyphicon-pencil"></span><br class="hidden-xs">Stats</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="glyphicon glyphicon-log-out"></span><br class="hidden-xs">Log Out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!-- .container -->
+            </nav><!-- #header-nav -->
+        </header>
+
+	
+	<div ng-app="myApp" ng-controller="TableController">
+		<h1 class="tabletitle">Table for Customers</h1>
+		<!--Table for customers -->
+		<table class="tableAlign">
+		  <tr>
+		  	<th>ID</th><th>Name</th><th>Address</th><th>Zip</th><th>City</th><th>Rejected</th>
+		  </tr>	
+		  <tr ng-repeat="x in names">
+		    <td>{{ x.id }}</td>
+		    <td>{{ x.name }}</td>
+			<td>{{ x.address}}</td>
+			<td>{{ x.zip }}</td>
+		    <td>{{ x.city }}</td>
+		    <td>{{ x.rejected }}</td>
+		  </tr>
+		</table>
+
+		<div class="container">
+			<div>
+				<button type="button" class="btn btn-primary col-lg-4 col-md-4 col-sm-4" ng-click="addCustomer()">Add Customer
+				</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-success col-lg-4 col-md-4 col-sm-4" ng-click="editCustomer()">Edit Customer
+				</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-danger col-lg-4 col-md-4 col-sm-4" ng-click="deleteCustomer()">Remove Customer
+				</button>
+			</div>
+		</div>
+
+		<table class="smallTable" id="newCustomer">
+			<tr>
+				<td>Customer ID</td>
+				<td><input type="text" ng-model="customer.id" id="customerId" value="" placeholder="Empty if adding order">
+            <tr>
+            	<td>Customer's Name</td>
+            	<td><input type="text" ng-model="customer.name" id="customerName" value="" /></td>
+            </tr>
+
+            <tr>
+            	<td>Address</td>
+            	<td><input type="text" ng-model="customer.address" id="customerAddress" value="" /></td>
+            </tr>
+            <tr>
+            	<td>Zip</td>
+            	<td><input type="text" ng-model="customer.zip" placeholder="Date and Time" inputmode="numeric" id="sentTime" value="" name="timestamp" step="1"/></td>
+            </tr>
+            <tr>
+            	<td>City</td>
+            	<td><input type="text" ng-model="customer.city" id="customerCity"/></td> 
+            </tr>
+            <tr>
+            	<td>Rejected Date</td>
+            	<td><input type="datetime-local" ng-model="customer.rejected" id="rejected" /></td>
+            </tr>
+            <tr id="delafter">
+            	<td colspan="2"><a class="refresh" id="refreshOrder" title="">Refresh</a></td>
+            </tr>
+        </table>
+		
+		<br><br>
+		<hr>
+		<!--Table for Orders -->
+		<h1 class="tabletitle">Table of Orders</h1>
+		<table class="tableAlign">
+			<tr>
+				<th>ID</th><th>Customer ID</th><th>Product Name</th><th>Sent at</th>
+			</tr>
+			<tr ng-repeat="y in products">
+				<td>{{ y.id }}</td>
+				<td>{{ y.customers_id }}</td>
+				<td>{{ y.product_name }}</td>
+				<td>{{ y.sent_at }}</td>
+			</tr>
+
+		</table>
+
+
+		<div class="container">
+			<div>
+				<button type="button" class="btn btn-primary col-lg-4 col-md-4 col-sm-4" ng-click="addOrder()">Add Order
+				</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-success col-lg-4 col-md-4 col-sm-4" ng-click="editOrder()">Edit Order
+				</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-danger col-lg-4 col-md-4 col-sm-4" ng-click="deleteOrder()">Remove Order
+				</button>
+			</div>
+		</div>
+
+		<table class="smallTable" id="newOrder">
+			<tr>
+				<td>Order ID</td>
+				<td><input type="text" ng-model="order.id" id="orderId" value="" placeholder="Empty if adding order">
+            <tr>
+            	<td>Customer ID.</td>
+            	<td><input type="text" ng-model="order.customers_id" id="customerId" value="" /></td>
+            </tr>
+
+            <tr>
+            	<td>Product Name</td>
+            	<td><input type="text" ng-model="order.product_name" id="pName" value="" /></td>
+            </tr>
+            <tr>
+            	<td>Sent At</td>
+            	<td><input type="datetime-local" ng-model="order.sent_at" placeholder="Date and Time" inputmode="numeric" id="sentTime" value="" name="timestamp" step="1"/></td>
+            </tr>
+            <tr id="delafter">
+            	<td colspan="2"><a class="refresh" id="refreshOrder" title="">Refresh</a></td>
+            </tr>
+        </table>
+
+	</div>
+
+	<center><span id="joinedTable"><a href="tables.html" >Tables Together</a></span></center>
+	<script src="lib/jquery.js"></script>
+	<script src="lib/bootstrap.min.js"></script>
+	<script src="lib/angular.min.js"></script>
+	<script src="lib/angular-ui-router.min.js"></script>
+	<script src="js/app.js"></script>
+	
+	</body>		
+</html>
